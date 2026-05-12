@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* UKGoldCasinoSites — English Gentlemen's Club Theme */
+/* Palette: Deep Navy, Burnished Gold, Dark Forest Green, Ivory */
+@layer base {
+  :root {
+    --font-sans: var(--font-inter);
+    --font-display: var(--font-playfair);
+
+    /* Core — deep navy */
+    --background: 222 47% 7%;
+    --foreground: 43 45% 88%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 43 45% 88%;
+
+    --popover: 222 40% 10%;
+    --popover-foreground: 43 45% 88%;
+
+    /* Near-black primary */
+    --primary: 222 50% 5%;
+    --primary-foreground: 43 45% 88%;
+
+    /* Charcoal secondary */
+    --secondary: 222 35% 14%;
+    --secondary-foreground: 43 45% 88%;
+
+    --muted: 222 30% 16%;
+    --muted-foreground: 220 15% 52%;
+
+    /* Burnished gold accent */
+    --accent: 42 68% 48%;
+    --accent-foreground: 222 50% 5%;
+
+    /* Hunter green */
+    --club-green: 150 44% 16%;
+    --club-green-light: 150 38% 26%;
+    --club-green-foreground: 43 45% 88%;
+
+    --destructive: 0 65% 42%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 42 20% 20%;
+    --input: 222 35% 14%;
+    --ring: 42 68% 48%;
+
+    /* Sharp corners — Gentlemen's Club aesthetic */
+    --radius: 0.125rem;
+
+    /* Sidebar */
+    --sidebar-background: 222 50% 5%;
+    --sidebar-foreground: 43 45% 88%;
+    --sidebar-primary: 42 68% 48%;
+    --sidebar-primary-foreground: 222 50% 5%;
+    --sidebar-accent: 222 40% 10%;
+    --sidebar-accent-foreground: 43 45% 88%;
+    --sidebar-border: 42 20% 20%;
+    --sidebar-ring: 42 68% 48%;
+
+    /* Extra tokens */
+    --gold: 42 68% 48%;
+    --gold-light: 42 68% 64%;
+    --gold-dim: 42 35% 28%;
+    --ivory: 43 45% 88%;
+    --navy: 222 47% 7%;
+    --navy-mid: 222 40% 10%;
+    --navy-light: 222 35% 14%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply bg-background;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5 {
+    @apply font-serif;
+  }
+}
+
+/* Thin gold rule dividers — Gentlemen's Club detail */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--gold)), transparent);
+}
+.rule-gold-solid {
+  height: 1px;
+  background: hsl(var(--gold) / 0.4);
+}
+.rule-thin {
+  height: 1px;
+  background: hsl(var(--border));
+}
+
+/* Club card styling — sharp edges, gold border on hover */
+.card-club {
+  box-shadow: 0 0 0 1px hsl(var(--gold) / 0.12), 0 2px 24px hsl(var(--navy) / 0.8);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card-club:hover {
+  box-shadow: 0 0 0 1px hsl(var(--gold) / 0.4), 0 8px 32px hsl(var(--navy) / 0.9);
+  transform: translateY(-2px);
+}
+
+/* Rank badge */
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: hsl(var(--gold));
+  color: hsl(var(--navy));
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-fade-in     { animation: fade-in     0.6s ease-out both; }
+.animate-fade-in-up  { animation: fade-in-up  0.7s ease-out both; }
+.animate-slide-up    { animation: slide-up    0.4s ease-out both; }
+.animate-scale-in    { animation: scale-in    0.3s ease-out both; }
+
+.gold-shimmer {
+  background: linear-gradient(90deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold)) 100%);
+  background-size: 200% auto;
+  animation: shimmer 3.5s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section divider ornament */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: hsl(var(--gold));
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: hsl(var(--gold) / 0.35);
+}
