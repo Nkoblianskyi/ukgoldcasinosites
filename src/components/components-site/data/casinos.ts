@@ -15,7 +15,7 @@ export const casinos: Casino[] = [
     name: "VegasHero",
     logo: "/vegashero.png",
     rating: 9.9,
-    bonus: "125% UP TO £1,250 + 250 FS + 200% UP TO 3,000 USDT",
+    bonus: "125% UP TO £1,250 + 250 FS / 200% UP TO 3,000 USDT",
     features: ["Fast Payouts", "Mobile App", "5% Cashback"],
     isTopChoice: true,
     url: "https://qualityboost.top/qfdxrcVH",
